@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <!-- Fragment principal, la première page de l'application -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.enioka.gowhere.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_transitionFragment"
+            app:destination="@id/transitionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <!-- Fragment de transition -->
+    <fragment
+        android:id="@+id/transitionFragment"
+        android:name="com.enioka.gowhere.TransitionRoulette"
+        android:label="transition_roulette"
+        tools:layout="@layout/transition_roulette">
+        <action
+            android:id="@+id/action_transitionFragment_to_destinationFragment"
+            app:destination="@id/destinationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <!-- Fragment de destination -->
+    <fragment
+        android:id="@+id/destinationFragment"
+        android:name="com.enioka.gowhere.DestinationFragment"
+        android:label="fragment_destination"
+        tools:layout="@layout/fragment_destination">
+        <action
+            android:id="@+id/action_destinationFragment_to_informationsFragment"
+            app:destination="@id/informationsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_destinationFragment_to_transitionFragment"
+            app:destination="@id/transitionFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <!-- Fragment d'informations -->
+    <fragment
+        android:id="@+id/informationsFragment"
+        android:name="com.enioka.gowhere.InformationsFragment"
+        android:label="fragment_info_destination"
+        tools:layout="@layout/fragment_info_destination">
+        <action
+            android:id="@+id/action_infodestinationFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+</navigation>
